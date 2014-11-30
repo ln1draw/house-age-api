@@ -55,3 +55,6 @@ CSV.read(residentials).each do |n|
   p.property_type = "Residential"
   p.save
 end
+
+duplicates = Property.select('parcel_number, count(parcel_number)').group('parcel_number').having('count(parcel_number) > 1')
+duplicates.destroy_all
