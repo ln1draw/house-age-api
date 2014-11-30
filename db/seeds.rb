@@ -10,7 +10,7 @@ commercials = open("https://dl.dropboxusercontent.com/u/34984839/EXTR_CommBldg.c
 
 CSV.read(commercials).each do |n|
   p = Property.new
-  p.parcel_number = n[0]
+  p.parcel_number = "#{n[0]}#{n[1]}"
   p.year_built = n[20]
   p.address = n[4].gsub(/\s+/, " ")
   p.property_type = "Commercial"
@@ -23,7 +23,7 @@ condos = open("https://dl.dropboxusercontent.com/u/34984839/EXTR_CondoComplex.cs
 
 CSV.read(condos).each do |n|
   p = Property.new
-  p.parcel_number = n[0]
+  p.parcel_number = "#{n[0]}0000"
   p.year_built = n[14]
   p.address = n[23].gsub(/\s+/, " ")
   p.property_type = "Condo"
@@ -36,7 +36,7 @@ apartments = open("https://dl.dropboxusercontent.com/u/34984839/EXTR_AptComplex.
 
 CSV.read(apartments).each do |n|
   p = Property.new
-  p.parcel_number = n[0]
+  p.parcel_number = "#{n[0]}#{n[1]}"
   p.year_built = n[13]
   p.address = n[20].gsub(/\s+/, " ")
   p.property_type = "Apartment"
@@ -49,7 +49,7 @@ residentials = open("https://dl.dropboxusercontent.com/u/34984839/EXTR_ResBldg.c
 
 CSV.read(residentials).each do |n|
   p = Property.new
-  p.parcel_number = n[0]
+  p.parcel_number = "#{n[0]}#{n[1]}"
   p.year_built = n[43]
   p.address = n[4].gsub(/\s+/, " ")
   p.property_type = "Residential"
