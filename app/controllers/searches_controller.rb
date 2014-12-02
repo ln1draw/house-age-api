@@ -7,6 +7,8 @@ class SearchesController < ApplicationController
       @results = Property.where("parcel_number ILIKE ?", "%#{params[:parcel]}%")
     elsif params[:year]
       @results = Property.where("year_built ILIKE ?", "%#{params[:year]}%")
+    else
+      @results = []
     end
   end
 
