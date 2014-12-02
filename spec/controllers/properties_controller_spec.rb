@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Property do
+describe PropertiesController do
 
   describe 'subject' do
 

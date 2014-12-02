@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Property do
+describe SearchesController do
 
   describe 'subject' do
 
