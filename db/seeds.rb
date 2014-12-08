@@ -83,6 +83,3 @@ puts "\nResidential Buildings Complete..."
 puts "[DB contains #{Property.count} records]\n\n"
 
 puts "Import Complete!"
-
-# duplicates = Property.select('parcel_number, count(parcel_number)').group('parcel_number').having('count(parcel_number) > 1')
-# duplicates.destroy_all
