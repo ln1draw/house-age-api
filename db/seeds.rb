@@ -26,25 +26,6 @@ puts "\nApartments Complete..."
 puts "[DB contains #{Property.count} records]\n\n"
 
 
-# Commercial Records
-puts "Parsing Commercial Buildings..."
-commercials = open("https://dl.dropboxusercontent.com/u/34984839/EXTR_CommBldg.csv")
-
-CSV.read(commercials).each_with_index do |n, i|
-  p = Property.new
-  p.parcel_number = "#{n[0]}#{n[1]}"
-  p.year_built = n[20]
-  p.address = n[4].gsub(/\s+/, " ")
-  p.property_type = "Commercial"
-  p.save
-  print ".".colorize(:magenta) if i % 100 == 0
-end
-
-commercials.close
-puts "\nCommercial Buildings Complete..."
-puts "[DB contains #{Property.count} records]\n\n"
-
-
 # Condo Records
 puts "Parsing Condos..."
 condos = open("https://dl.dropboxusercontent.com/u/34984839/EXTR_CondoComplex.csv")
@@ -82,7 +63,24 @@ residentials.close
 puts "\nResidential Buildings Complete..."
 puts "[DB contains #{Property.count} records]\n\n"
 
-puts "Import Complete!"
 
-# duplicates = Property.select('parcel_number, count(parcel_number)').group('parcel_number').having('count(parcel_number) > 1')
-# duplicates.destroy_all
+# Commercial Records
+puts "Parsing Commercial Buildings..."
+commercials = open("https://dl.dropboxusercontent.com/u/34984839/EXTR_CommBldg.csv")
+
+CSV.read(commercials).each_with_index do |n, i|
+  p = Property.new
+  p.parcel_number = "#{n[0]}#{n[1]}"
+  p.year_built = n[20]
+  p.address = n[4].gsub(/\s+/, " ")
+  p.property_type = "Commercial"
+  p.save
+  print ".".colorize(:magenta) if i % 100 == 0
+end
+
+commercials.close
+puts "\nCommercial Buildings Complete..."
+puts "[DB contains #{Property.count} records]\n\n"
+
+
+puts "Import Complete!"
