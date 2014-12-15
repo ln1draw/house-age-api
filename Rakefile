@@ -28,3 +28,7 @@ task :test_data => :environment do
   puts "\nTest Data Import Complete..."
   puts "[DB contains #{Property.count} records]\n"
 end
+
+task :geocode => :environment do
+  # magic to get geocode data!
+end

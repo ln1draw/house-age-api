@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20141129005321) do
     t.string   "year_built"
     t.string   "address"
     t.string   "property_type"
+    t.string   "latitude"
+    t.string   "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

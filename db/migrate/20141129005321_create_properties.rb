@@ -5,6 +5,8 @@ class CreateProperties < ActiveRecord::Migration
       t.string :year_built
       t.string :address
       t.string :property_type
+      t.string :latitude
+      t.string :longitude
 
       t.timestamps
     end
