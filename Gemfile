@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -10,8 +11,8 @@ group :development do
 end
 
 gem 'simplecov', :require => false, :group => :test
-
 gem 'colorize'
+gem 'httparty'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
