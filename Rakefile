@@ -29,6 +29,17 @@ task :test_data => :environment do
   puts "[DB contains #{Property.count} records]\n"
 end
 
-task :geocode => :environment do
-  # magic to get geocode data!
+task :google_geocode => :environment do
+  puts "Geocoding starting..."
+  properties    = Property.all
+
+  puts "#{properties.count} Properties to Geocode"
+
+  properties.each_with_index do |p, i|
+    array = p.geocode_me
+    p.update(latitude: array[0], longitude: array[1])
+    print "." if i % 10 == 0
+  end
+
+  puts "\nGeocoding complete!"
 end
