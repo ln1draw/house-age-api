@@ -7,4 +7,8 @@ class Property < ActiveRecord::Base
     location  = response["results"][0]["geometry"]["location"]
     [location["lat"], location["lng"]]
   end
+
+  def self.fuzzy_search(query)
+    self.where("address ILIKE ? OR parcel_number = ? OR year_built = ?", "%#{query}%", "#{query}", "#{query}")
+  end
 end

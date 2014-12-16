@@ -2,7 +2,7 @@ class SearchesController < ApplicationController
 
   def index
     query = params[:query]
-    unless @results = Property.where("address ILIKE ? OR parcel_number = ? OR year_built = ?", "%#{query}%", "#{query}", "#{query}")
+    unless @results = Property.fuzzy_search(query)
       @results = []
     end
 
